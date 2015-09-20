@@ -1,0 +1,8 @@
+node_modules/
+Capfile
+config/deploy
+config/deploy.rb
+.capistrano/
+newrelic_agent.log
+.tmp/
+config/local.js
