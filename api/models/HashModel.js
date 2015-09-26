@@ -1,5 +1,5 @@
 var HashModel = {
-	getRandomHash : function (howMany, chars) {
+	getRandomHash : function (howMany, cb, chars) {
 		var crypto = require('crypto')
 	    chars = chars
 	        || "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
@@ -12,11 +12,10 @@ var HashModel = {
 	    };
 
 	    var hash = value.join('')
-	    if (this.checkHash(hash)) {
-	    	this.getRandomHash(howMany)
-	    }
-
-	    return hash
+	    this.checkHash(hash, function (exist) {
+	    	if (exist) cb(false)
+	    	cb(hash)
+	    }.bind(this))
 	},
 	checkHash : function (hash, cb) {
 		sails.redisClient.get(hash, function (err, reply) {
@@ -27,6 +26,21 @@ var HashModel = {
 				cb(false)
 			}
 		})
+	},
+	setHash : function (hash, obj, cb) {
+		this.checkHash(hash, function (exist) {
+			if (exist) cb(false)
+			if (typeof obj === "object" && !exist) {
+				sails.redisClient.HMSET(hash, obj, function (err, res) {
+					console.log(hash)
+					if (err) cb(false)
+					sails.redisClient.send_command('EXPIRE', [hash, '2629743'])
+					cb(true)			
+				}.bind(this))
+			} else {
+				cb(false)
+			}
+		}.bind(this))
 	}
 };
 module.exports = HashModel;
