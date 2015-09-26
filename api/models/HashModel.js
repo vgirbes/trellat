@@ -11,7 +11,12 @@ var HashModel = {
 	        value[i] = chars[rnd[i] % len]
 	    };
 
-	    return value.join('')
+	    var hash = value.join('')
+	    if (this.checkHash(hash)) {
+	    	this.getRandomHash(howMany)
+	    }
+
+	    return hash
 	},
 	checkHash : function (hash, cb) {
 		sails.redisClient.get(hash, function (err, reply) {
