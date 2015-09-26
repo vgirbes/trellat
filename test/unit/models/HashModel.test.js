@@ -34,5 +34,26 @@ describe('Request hash', function () {
 			expect(result).to.be.false
 			done()
 		})
+	}),
+	it('should save an associative list in Redis', function (done) {
+		try {
+			var obj = {
+				"http://url1.com",
+				"http://url2.com"
+			}
+			var result = HashModel.setHash(obj, function (result) {
+				expect(result).to.be.true
+				done()
+			})
+		} catch (err) {
+			if (err) throw new err
+		}
+	}),
+	it('should not save an associative list in Redis if obj has an incorrect type', function (done) {
+		var obj
+		var result = HashModel.setHash(obj, function (result) {
+			expect(result).to.be.false
+			done()
+		})
 	})
 })
