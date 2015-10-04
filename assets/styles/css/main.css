@@ -1,0 +1,85 @@
+body {
+	font-family: 'Sigmar One', cursive;
+	background-color: #E4DAE3;
+}
+
+.url-text {
+	/*-webkit-box-shadow: 5px 5px 8px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 5px 5px 8px 0px rgba(0,0,0,0.75);
+	box-shadow: 5px 5px 8px 0px rgba(0,0,0,0.75);*/
+	padding:5px;border-color:rgb(154, 128, 185);
+	border-style:dotted solid;
+	border-width:2px;
+	width:80%;
+	float:left;
+	height:40px;
+}
+
+.url-text:hover {
+	background-color: #fff;
+}
+
+.url-text:focus {
+	background-color:rgb(249, 245, 187);
+}
+
+.delete-button {
+	/*-webkit-box-shadow: 5px 5px 8px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 5px 5px 8px 0px rgba(0,0,0,0.75);
+	box-shadow: 5px 5px 8px 0px rgba(0,0,0,0.75);*/
+	width:30px;
+	background-color:rgb(255, 0, 21);
+	color:#fff;
+	border-style:none;
+	height:40px;
+	border-color:rgb(154, 128, 185);
+}
+
+.add-button {
+	/*-webkit-box-shadow: 5px 5px 8px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 5px 5px 8px 0px rgba(0,0,0,0.75);
+	box-shadow: 5px 5px 8px 0px rgba(0,0,0,0.75);*/
+	width:125px;
+	color:#fff;
+	border-style:none;
+	height:40px;
+	border-color:rgb(154, 128, 185);
+	background-color:rgb(154, 128, 185);
+}
+
+.buttons {
+	display:block;
+	clear:both;
+}
+
+.description {
+	height:60px;
+	width:80%;
+	padding:5px;
+	border-color:rgb(154, 128, 185);
+	border-style:dotted solid;
+    border-width:2px;
+    margin-bottom:20px;
+}
+
+.short-button{
+	padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.shorten {
+	width:80%;
+	margin-top:30px;
+	height:40px;
+}
+
+header {
+	display:block;
+	font-size:65pt;
+	color:rgb(154, 128, 185);
+	height:120px;
+	text-align:center;
+	width:100%;
+}
