@@ -1,4 +1,3 @@
-var HashModel = require('../../../api/models/HashModel')
 var request = require('supertest')
 var chai = require("chai")
 var assert = chai.assert,
