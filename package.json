@@ -5,6 +5,7 @@
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
+    "bootstrap": "^3.3.5",
     "chai": "^3.2.0",
     "crypto": "0.0.3",
     "ejs": "~0.8.4",
