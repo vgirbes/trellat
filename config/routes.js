@@ -34,6 +34,11 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
+  },
+
+  'POST /shorten': {
+    controller: 'ShortenController',
+    action: 'request'
   }
 
   /***************************************************************************
