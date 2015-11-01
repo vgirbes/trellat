@@ -52,7 +52,7 @@ function addurl(id) {
 $(document).ready(function() {
 	$('.shorten').click(function() {
 		var count = 1;
-		var map = '?description=' + $('#description').val();
+		var map = 'description=' + $('#description').val();
 		$("input[type=text]").each(function() {
 		    map += '&url' + count + '=' + this.value;
 		    count++;
@@ -64,7 +64,9 @@ $(document).ready(function() {
 		    data : map,
 		    success: function(data, textStatus, jqXHR)
 		    {
-		        console.log(data);
+		        response = JSON.parse(data);
+		        msg = response.status_msg;
+		        $('#response').html(msg).show();
 		    },
 		    error: function (jqXHR, textStatus, errorThrown)
 		    {

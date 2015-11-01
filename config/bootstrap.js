@@ -13,6 +13,9 @@ module.exports.bootstrap = function(cb) {
 
   // It's very important to trigger this callback method when you are finished
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
+  sails.OK = 0
+  sails.ERROR_URL_NEEDED = 1
+  sails.ERROR_HASH_CREATION = 2
   var redis = require('redis')
   sails.redisClient = redis.createClient(sails.config.redis.port, sails.config.redis.host)
   sails.redisClient.auth(sails.config.redis.password)

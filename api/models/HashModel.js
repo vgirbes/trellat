@@ -18,8 +18,7 @@ var HashModel = {
 	    }.bind(this))
 	},
 	checkHash : function (hash, cb) {
-		sails.redisClient.get(hash, function (err, reply) {
-			if (err) throw new err;
+		sails.redisClient.hgetall(hash, function (err, reply) {
 			if (reply) {
 				cb(true)
 			} else {
@@ -29,10 +28,13 @@ var HashModel = {
 	},
 	setHash : function (hash, obj, cb) {
 		this.checkHash(hash, function (exist) {
-			if (exist) cb(false)
+			if (exist) {
+				cb(false)
+				return
+			}
+			
 			if (typeof obj === "object" && !exist) {
 				sails.redisClient.HMSET(hash, obj, function (err, res) {
-					console.log(hash)
 					if (err) cb(false)
 					sails.redisClient.send_command('EXPIRE', [hash, '2629743'])
 					cb(true)			
