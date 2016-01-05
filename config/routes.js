@@ -38,7 +38,8 @@ module.exports.routes = {
 
   'POST /shorten': {
     controller: 'ShortenController',
-    action: 'request'
+    action: 'request',
+    cache: false
   }
 
   /***************************************************************************

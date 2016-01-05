@@ -49,7 +49,30 @@ function addurl(id) {
 	}).appendTo('#boton' + id);
 }
 
+function checkCookiesPolicy() {
+	if (localStorage) {
+		var cookies = localStorage.getItem('cookies-policy');
+		if (!cookies) {
+			$('#cookies').show();
+		}
+	} else {
+		$('#cookies').show();
+	}
+}
+
+function acceptCookies() {
+	if (localStorage) {
+		localStorage.setItem('cookies-policy', 'checked');
+	}
+	$('#cookies').hide();
+}
+
 $(document).ready(function() {
+	checkCookiesPolicy();
+	$('#accept-cookies').click(function() {
+		acceptCookies();
+	});
+
 	$('.shorten').click(function() {
 		var count = 1;
 		var map = 'description=' + $('#description').val();

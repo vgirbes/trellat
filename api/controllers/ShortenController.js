@@ -8,7 +8,7 @@ var ShortenController = {
 				return url
 			}
 		})
-		
+
 		if (check.length > 1) {
 			HashModel.getRandomHash(4, function (hash) {
 				HashModel.setHash(hash, check, function (result) {
@@ -16,7 +16,7 @@ var ShortenController = {
 						this.manageResponse(res, hash, sails.ERROR_HASH_CREATION, 'An error has occurred. Please, try again.')
 						return
 					}
-					this.manageResponse(res, hash, sails.OK, 'All went fine! Enjoy! That\'s your shorted url: http://trell.at/'+hash)
+					this.manageResponse(res, hash, sails.OK, 'All went fine! Enjoy! That\'s your shorted url: <a href="http://trell.at/'+hash+'">http://trell.at/'+hash+'</a>')
 				}.bind(this))
 			}.bind(this))
 		} else {

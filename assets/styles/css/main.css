@@ -1,15 +1,13 @@
 body {
-	font-family: 'Sigmar One', cursive;
-	background-color: #E4DAE3;
+	font-family: Arial, cursive;
+	background-color: #fff;
 }
 
 .url-text {
-	/*-webkit-box-shadow: 5px 5px 8px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: 5px 5px 8px 0px rgba(0,0,0,0.75);
-	box-shadow: 5px 5px 8px 0px rgba(0,0,0,0.75);*/
-	padding:5px;border-color:rgb(154, 128, 185);
-	border-style:dotted solid;
-	border-width:2px;
+	padding:5px;
+	border-color:#ccc;
+	border-style:solid;
+	border-width:1px;
 	width:80%;
 	float:left;
 	height:40px;
@@ -19,32 +17,26 @@ body {
 	background-color: #fff;
 }
 
-.url-text:focus {
+.url-text:focus, .description:focus {
 	background-color:rgb(249, 245, 187);
 }
 
 .delete-button {
-	/*-webkit-box-shadow: 5px 5px 8px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: 5px 5px 8px 0px rgba(0,0,0,0.75);
-	box-shadow: 5px 5px 8px 0px rgba(0,0,0,0.75);*/
 	width:30px;
-	background-color:rgb(255, 0, 21);
+	background-color:#B51C2B;
 	color:#fff;
 	border-style:none;
 	height:40px;
-	border-color:rgb(154, 128, 185);
+	border-color:#B51C2B;
 }
 
 .add-button {
-	/*-webkit-box-shadow: 5px 5px 8px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: 5px 5px 8px 0px rgba(0,0,0,0.75);
-	box-shadow: 5px 5px 8px 0px rgba(0,0,0,0.75);*/
 	width:125px;
 	color:#fff;
 	border-style:none;
 	height:40px;
-	border-color:rgb(154, 128, 185);
-	background-color:rgb(154, 128, 185);
+	border-color:#DE7026;
+	background-color:#DE7026;
 }
 
 .buttons {
@@ -56,9 +48,9 @@ body {
 	height:60px;
 	width:80%;
 	padding:5px;
-	border-color:rgb(154, 128, 185);
-	border-style:dotted solid;
-    border-width:2px;
+	border-style:solid;
+    border-width:1px;
+    border-color:#ccc;
     margin-bottom:20px;
 }
 
@@ -79,11 +71,40 @@ header {
 	display:block;
 	font-size:65pt;
 	color:rgb(154, 128, 185);
-	height:120px;
-	text-align:center;
+	height:210px;
 	width:100%;
+	padding:20px;
+	text-align:center;
 }
 
 #response {
 	margin-top:30px;
+	font-size:3em;
+	color:#DE7026;
+}
+
+#web {
+	display:table;
+	width:80%;
+	margin:auto;
+}
+
+#cookies {
+	display:none;
+	position:fixed;
+	width:100%;
+	padding:5px;
+	bottom:0;
+	background-color:#BE1E2D;
+	color:#fff;
+	text-align:center;
+}
+
+#cookies a {
+	color:#DE7026;
+	cursor:pointer;
+}
+
+#response a {
+	color:#be1e2d;
 }

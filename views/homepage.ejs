@@ -1,20 +1,18 @@
-<header>
-    Trellat
-</header>
-
-<div class="container-fluid">
-    <div class="url">
-        <textarea length="150" id="description" class="description" name="description" placeholder="Description (Optional)"></textarea>
+<section id="web">
+    <div class="container-fluid">
+        <div class="url">
+            <textarea length="150" id="description" class="description" name="description" placeholder="Description (Optional)"></textarea>
+        </div>
+        <div class="url">
+            <input id="url-text-1" class="url-text" name="url[]" type="text" value="" placeholder="http://">
+        </div>
+        <div>
+            <button class="delete-button">X</button>
+            <button class="add-button" onclick="addurl(1);">Add</button>
+        </div>
     </div>
-    <div class="url">
-        <input id="url-text-1" class="url-text" name="url[]" type="text" value="" placeholder="http://">
+    <div class="short-button">
+        <button class="shorten">Shorten</button>
     </div>
-    <div>
-        <button class="delete-button">X</button>
-        <button class="add-button" onclick="addurl(1);">Add</button>
-    </div>
-</div>
-<div class="short-button">
-    <button class="shorten">Shorten</button>
-</div>
-<div id="response" class="container-fluid" style="display:none;m"></div>
+    <div id="response" class="container-fluid" style="display:none;m"></div>
+</section>
