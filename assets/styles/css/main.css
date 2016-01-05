@@ -108,3 +108,32 @@ header {
 #response a {
 	color:#be1e2d;
 }
+
+#navigation {
+	position:fixed;
+	bottom:0;
+	padding:20px;
+	width:100%;
+	opacity:0.9;
+	background-color:#B51C2B;
+	text-align:center;
+	height:120px;
+}
+
+#back-position {
+	float:left;
+}
+
+#next-position {
+	float:right;
+}
+
+#link-position {
+	clear:both;
+	width:100%;
+}
+
+#social {
+	width:95px;
+	float:left;
+}

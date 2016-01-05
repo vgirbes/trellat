@@ -9,40 +9,51 @@ var HashModel = {
 
 	    for (var i = 0; i < howMany; i++) {
 	        value[i] = chars[rnd[i] % len]
-	    };
+	    }
 
 	    var hash = value.join('')
-	    this.checkHash(hash, function (exist) {
-	    	if (exist) cb(false)
-	    	cb(hash)
-	    }.bind(this))
+	    this.checkHash(hash, (exist) => {
+	    	if (exist) {
+	    		return cb(false)
+	    	}
+
+	    	return cb(hash)
+	    })
 	},
 	checkHash : function (hash, cb) {
-		sails.redisClient.hgetall(hash, function (err, reply) {
+		sails.redisClient.hgetall(hash, (err, reply) => {
 			if (reply) {
-				cb(true)
-			} else {
-				cb(false)
+				return cb(true)
 			}
+
+			return cb(false)
 		})
 	},
 	setHash : function (hash, obj, cb) {
-		this.checkHash(hash, function (exist) {
+		this.checkHash(hash, (exist) => {
 			if (exist) {
-				cb(false)
-				return
+				return cb(false)
 			}
-			
+
 			if (typeof obj === "object" && !exist) {
-				sails.redisClient.HMSET(hash, obj, function (err, res) {
-					if (err) cb(false)
+				sails.redisClient.HMSET(hash, obj, (err, res) => {
+					if (err) {
+						return cb(false)
+					}
+
 					sails.redisClient.send_command('EXPIRE', [hash, '2629743'])
-					cb(true)			
-				}.bind(this))
+					return cb(true)
+				})
 			} else {
-				cb(false)
+				return cb(false)
 			}
-		}.bind(this))
+		})
+	},
+	getHashList : function (hash, cb) {
+		sails.redisClient.hgetall(hash, (err, result) => {
+			if (err || result === null) cb(false)
+			return cb(result)
+		})
 	}
 };
 module.exports = HashModel;

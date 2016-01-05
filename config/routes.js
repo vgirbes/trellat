@@ -40,6 +40,12 @@ module.exports.routes = {
     controller: 'ShortenController',
     action: 'request',
     cache: false
+  },
+
+  'GET /:trellat': {
+    controller: 'ShortenController',
+    action: 'getList',
+    cache: false
   }
 
   /***************************************************************************
