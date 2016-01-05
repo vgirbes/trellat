@@ -90,6 +90,16 @@ $(document).ready(function() {
 		        response = JSON.parse(data);
 		        msg = response.status_msg;
 		        $('#response').html(msg).show();
+		        $('.fb-share-button').attr('data-href', 'http://trell.at/' + response.hash);
+		        $('#social').html('<a href="https://twitter.com/share" class="twitter-share-button"{count} data-url="http://trell.at/'+ response.hash +'" data-size="large">Tweet</a>' +
+				'<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?\'http\':\'https\';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+\'://platform.twitter.com/widgets.js\';fjs.parentNode.insertBefore(js,fjs);}}(document, \'script\', \'twitter-wjs\');</script>');
+				(function(d, s, id) {
+				  var js, fjs = d.getElementsByTagName(s)[0];
+				  if (d.getElementById(id)) return;
+				  js = d.createElement(s); js.id = id;
+				  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.5&appId=375936502526226";
+				  fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));
 		    },
 		    error: function (jqXHR, textStatus, errorThrown)
 		    {
