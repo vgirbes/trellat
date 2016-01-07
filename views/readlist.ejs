@@ -5,10 +5,7 @@
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!--STYLES-->
-    <link rel="stylesheet" href="/styles/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="/styles/css/bootstrap.css">
-    <link rel="stylesheet" href="/styles/css/main.css">
-    <link rel="stylesheet" href="/styles/importer.css">
+    <link rel="stylesheet" href="/min/production.min.css">
     <!--STYLES END-->
     <script src="/js/dependencies/jquery-1.11.3.min.js"></script>
     <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
@@ -24,10 +21,11 @@
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <meta property="og:image"         content="images/logo_h.png" />
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <meta name="author" content="Vicent Girbés <vgirbes@gmail.com>">
+    <!--<meta name="author" content="Vicent Girbés <vgirbes@gmail.com>">-->
     <meta name="description" content="<%= description %>">
     <meta name="keywords" content="url, shortener, group, grouped, list, url shortener, url list">
     <style type="text/css">
@@ -62,6 +60,8 @@
                     var next = page + 1;
                     var back = page - 1;
                     $('#list').attr('src', list[page]);
+	            $('#link').html(list[page]);
+		    $('#link').attr('href', list[page]);
                     $('#back').attr('data-page', back);
                     $('#next').attr('data-page', next);
                     setButtons(list, next, back);
@@ -94,10 +94,7 @@
 
     </script>
     <!--SCRIPTS-->
-    <script src="/js/dependencies/sails.io.js"></script>
-    <script src="/js/bootstrap.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/npm.js"></script>
+    <script src="/min/production.min.js"></script>
     <!--SCRIPTS END-->
   </body>
 </html>

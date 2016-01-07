@@ -6,10 +6,7 @@
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!--STYLES-->
-    <link rel="stylesheet" href="/styles/css/bootstrap-theme.css">
-    <link rel="stylesheet" href="/styles/css/bootstrap.css">
-    <link rel="stylesheet" href="/styles/css/main.css">
-    <link rel="stylesheet" href="/styles/importer.css">
+    <link rel="stylesheet" href="/min/production.min.css">
     <!--STYLES END-->
     <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png">
@@ -28,7 +25,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <meta name="author" content="Vicent Girbés <vgirbes@gmail.com>">
+    <!--<meta name="author" content="Vicent Girbés <vgirbes@gmail.com>">-->
     <meta name="description" content="A grouped url shortener list.">
     <meta name="keywords" content="url, shortener, group, grouped, list, url shortener, url list">
   </head>
@@ -40,8 +37,8 @@
     <%- body %>
 
       <div id="cookies">
-        Our website uses cookies. They help us understand how users use our website so we can give you the best experience possible and also keep our online adverts relevant.<br/>By continuing to browse this site or choosing to close this message, you give consent for cookies to be used.<br/><br/>
-        <a id="accept-cookies">Don't show me this again</a>
+	<a id="accept-cookies">Don't show me this again</a><br/><br/>
+        Our website uses cookies. They help us understand how users use our website so we can give you the best experience possible and also keep our online adverts relevant.<br/>By continuing to browse this site or choosing to close this message, you give consent for cookies to be used.<br/>
       </div>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -54,12 +51,7 @@
 
     </script>
     <!--SCRIPTS-->
-    <script src="/js/dependencies/sails.io.js"></script>
-    <script src="/js/dependencies/jquery-1.11.3.min.js"></script>
-    <script src="/js/bootstrap.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/functions.js"></script>
-    <script src="/js/npm.js"></script>
+    <script src="/min/production.min.js"></script>
     <!--SCRIPTS END-->
   </body>
 </html>
