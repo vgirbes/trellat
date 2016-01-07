@@ -36,6 +36,7 @@
     </style>
   </head>
   <body>
+    <section id="preview-urls"></section>
     <iframe id="list" src="<%= list[1] %>" frameborder="0" height="100%" width="100%"></iframe>
     <section id="navigation">
         <div id="back-position">
@@ -45,29 +46,46 @@
             <button class="navigate add-button" id="next" data-page="2">Next</button>
         </div>
         <div id="link-position">
-            <a id="link" style="color:#000" href="<%= list[1] %>" target="_blank"><%= list[1] %></a>
+            <a id="link" href="<%= list[1] %>" target="_blank"><%= list[1] %></a>
         </div>
     </section>
     <script type="text/javascript">
         $(document).ready(function() {
             var list = [];
+            $('#preview-urls').html('');
             <%for (var i in list){%>
                 list[<%= i %>] = "<%= list[i] %>";
             <%}%>
+            previewLoad(list, 1);
             $('.navigate').click(function() {
                 var page = parseInt($(this).attr('data-page'));
                 if (typeof list[page] != 'undefined' && page > 0) {
-                    var next = page + 1;
-                    var back = page - 1;
-                    $('#list').attr('src', list[page]);
-	            $('#link').html(list[page]);
-		    $('#link').attr('href', list[page]);
-                    $('#back').attr('data-page', back);
-                    $('#next').attr('data-page', next);
-                    setButtons(list, next, back);
+                    previewLoad(list, page);
                 }
             });
         });
+
+        function previewLoad(list, page) {
+            var next = page + 1;
+            var back = page - 1;
+            $("#list").load(
+                list[page],
+                function(response, status, xhr) {
+                    $('#preview-urls').html('<div style="float:right;padding-right:20px;cursor:pointer;" onClick="closeModal();">X</div>');
+                    $('#preview-urls').append('Trying to redirect.<br/><a href="' + list[page] + '" target="_blank">Please, click here to view the page</a>');
+                    if (status == "success") {
+                        $('#preview-urls').hide();
+                    } else {
+                        $('#preview-urls').show();
+                    }
+                    $('#list').attr('src', list[page]);
+                    $('#link').html(list[page]);
+                    $('#link').attr('href', list[page]);
+                    $('#back').attr('data-page', back);
+                    $('#next').attr('data-page', next);
+                    setButtons(list, next, back);
+            });
+        }
 
         function setButtons(list, next, back) {
             if (typeof list[next] === 'undefined') {
@@ -81,6 +99,10 @@
             } else {
                 $('#back').show();
             }
+        }
+
+        function closeModal() {
+            $('#preview-urls').hide();
         }
     </script>
     <script>
