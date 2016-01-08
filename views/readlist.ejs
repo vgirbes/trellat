@@ -46,16 +46,17 @@
         </li>
     </ul>
     <section id="preview-urls"></section>
-    <iframe id="list" src="<%= list[1] %>" frameborder="0" height="100%" width="100%"></iframe>
+    <iframe id="list" src="#" frameborder="0" height="100%" width="100%"></iframe>
+    <section id="description"></section>
     <section id="navigation">
         <div id="back-position">
             <button class="navigate add-button" id="back" data-page="0" style="display:none;">Back</button>
         </div>
         <div id="next-position">
-            <button class="navigate add-button" id="next" data-page="2">Next</button>
+            <button class="navigate add-button" id="next" data-page="1">Next</button>
         </div>
         <div id="link-position">
-            <a id="link" href="<%= list[1] %>" target="_blank"><%= list[1] %></a>
+            <a id="link" href="#" target="_blank"></a>
         </div>
     </section>
     <script type="text/javascript">
@@ -63,6 +64,7 @@
             var list = [];
             $('#preview-urls').html('');
             $('#pagelist').html('');
+            $('#description').html("<%= list[0] %>");
             <%for (var i in list){%>
                 list[<%= i %>] = "<%= list[i] %>";
                 if (<%= i %> > 0) {
@@ -71,7 +73,6 @@
                 }
             <%}%>
             $('#pagelist').append('<li><a href="http://trell.at">Go to Trell.at</a></li>');
-            previewLoad(list, 1);
             $('.navigate').click(function() {
                 var page = parseInt($(this).attr('data-page'));
                 if (typeof list[page] != 'undefined' && page > 0) {
@@ -86,6 +87,8 @@
         function previewLoad(list, page) {
             var next = page + 1;
             var back = page - 1;
+            $('#description').hide();
+            $('#preview-urls').show();
             $("#list").load(
                 list[page],
                 function(response, status, xhr) {
