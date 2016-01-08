@@ -42,16 +42,16 @@
     </style>
   </head>
   <body class="bg">
-    <ul class="nav navbar-nav menulist" style="">
+    <ul class="nav navbar-nav menulist">
         <li class="dropdown">
             <a id="itemlist" href="#" data-toggle="dropdown" class="dropdown-toggle">List <b class="caret"></b></a>
             <ul id="pagelist" class="dropdown-menu"></ul>
         </li>
     </ul>
     <section id="preview-urls"></section>
-    <iframe id="list" src="#" frameborder="0" height="100%" width="100%"></iframe>
+    <iframe id="list" frameborder="0" height="100%" width="100%"></iframe>
     <section id="description-msg"></section>
-    <section id="navigation">
+    <div id="navigation">
         <div id="back-position">
             <button class="navigate add-button" id="back" data-page="0" style="display:none;">Back</button>
         </div>
@@ -61,7 +61,7 @@
         <div id="link-position">
             <a id="link" href="#" target="_blank"></a>
         </div>
-    </section>
+    </div>
     <script type="text/javascript">
         $(document).ready(function() {
             var list = [];
@@ -76,7 +76,7 @@
                 }
             <%}%>
             $('#pagelist').append('<li><a href="http://trell.at">Go to Trell.at</a></li>');
-            $('#description-msg').append('<div class="pageindex">Index<br/><hr></hr><ul class="nav">' + $('#pagelist').html() + '</ul></div>').addClass('nav');
+            $('#description-msg').append('<div class="pageindex">Index<br/><hr></hr><ul class="nav">' + $('#pagelist').html() + '</ul></div>');
             $('.navigate').click(function() {
                 var page = parseInt($(this).attr('data-page'));
                 if (typeof list[page] != 'undefined' && page > 0) {

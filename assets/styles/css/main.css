@@ -115,6 +115,9 @@ header {
 	padding:20px;
 	width:100%;
 	opacity:0.9;
+	background: -webkit-radial-gradient(farthest-side ellipse at 10% 0, #B51C2B, #DE7026 70%, #B51C2B 120%);
+  	background: -o-radial-gradient(farthest-side ellipse at 10% 0, #B51C2B, #DE7026 70%, #B51C2B 120%);
+  	background: -moz-radial-gradient(farthest-side ellipse at 10% 0, #B51C2B, #DE7026 70%, #B51C2B 120%);
 	background:radial-gradient(farthest-side ellipse at 10% 0, #B51C2B, #DE7026 70%, #B51C2B 120%);
 	text-align:center;
 	height:90px;
@@ -144,6 +147,9 @@ header {
 	text-align:center;
 	padding-top:20px;
 	font-size:1.5em;
+	background: -webkit-radial-gradient(farthest-side ellipse at 10% 0, #B51C2B, #DE7026 70%, #B51C2B 120%);
+  	background: -o-radial-gradient(farthest-side ellipse at 10% 0, #B51C2B, #DE7026 70%, #B51C2B 120%);
+  	background: -moz-radial-gradient(farthest-side ellipse at 10% 0, #B51C2B, #DE7026 70%, #B51C2B 120%);
 	background:radial-gradient(farthest-side ellipse at 10% 0, #B51C2B, #DE7026 70%, #B51C2B 120%);
 	opacity:0.9;
 	display:none;
@@ -187,6 +193,8 @@ header {
 	width:100%;
 	height:auto;
 	color:#333;
+	word-wrap: break-word;
+	margin-bottom:100px;
 }
 
 #description-msg a {
@@ -198,5 +206,10 @@ header {
 }
 
 .bg {
+	background: -webkit-radial-gradient(farthest-side ellipse at 10% 0, #ccc, #fff 70%, #FFFCAE 120%); 
+  	background: -o-radial-gradient(farthest-side ellipse at 10% 0, #ccc, #fff 70%, #FFFCAE 120%); 
+  	background: -moz-radial-gradient(farthest-side ellipse at 10% 0, #ccc, #fff 70%, #FFFCAE 120%); 
 	background:radial-gradient(farthest-side ellipse at 10% 0, #ccc, #fff 70%, #FFFCAE 120%);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
