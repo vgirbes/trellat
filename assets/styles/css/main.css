@@ -115,7 +115,7 @@ header {
 	padding:20px;
 	width:100%;
 	opacity:0.9;
-	background-color:#B51C2B;
+	background:radial-gradient(farthest-side ellipse at 10% 0, #B51C2B, #DE7026 70%, #B51C2B 120%);
 	text-align:center;
 	height:90px;
 }
@@ -144,7 +144,8 @@ header {
 	text-align:center;
 	padding-top:20px;
 	font-size:1.5em;
-	background-color:#DE7026;
+	background:radial-gradient(farthest-side ellipse at 10% 0, #B51C2B, #DE7026 70%, #B51C2B 120%);
+	opacity:0.9;
 	display:none;
 }
 
@@ -186,4 +187,16 @@ header {
 	width:100%;
 	height:auto;
 	color:#333;
+}
+
+#description-msg a {
+	color:#DE7026;
+}
+
+.pageindex {
+	margin-top:20px;
+}
+
+.bg {
+	background:radial-gradient(farthest-side ellipse at 10% 0, #ccc, #fff 70%, #FFFCAE 120%);
 }

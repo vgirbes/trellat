@@ -5,7 +5,10 @@
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!--STYLES-->
-    <link rel="stylesheet" href="/min/production.min.css">
+    <link rel="stylesheet" href="/styles/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/styles/css/bootstrap.css">
+    <link rel="stylesheet" href="/styles/css/main.css">
+    <link rel="stylesheet" href="/styles/importer.css">
     <!--STYLES END-->
     <script src="/js/dependencies/jquery-1.11.3.min.js"></script>
     <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png">
@@ -38,7 +41,7 @@
         }
     </style>
   </head>
-  <body>
+  <body class="bg">
     <ul class="nav navbar-nav menulist" style="">
         <li class="dropdown">
             <a id="itemlist" href="#" data-toggle="dropdown" class="dropdown-toggle">List <b class="caret"></b></a>
@@ -73,6 +76,7 @@
                 }
             <%}%>
             $('#pagelist').append('<li><a href="http://trell.at">Go to Trell.at</a></li>');
+            $('#description-msg').append('<div class="pageindex">Index<br/><hr></hr><ul class="nav">' + $('#pagelist').html() + '</ul></div>').addClass('nav');
             $('.navigate').click(function() {
                 var page = parseInt($(this).attr('data-page'));
                 if (typeof list[page] != 'undefined' && page > 0) {
@@ -87,6 +91,7 @@
         function previewLoad(list, page) {
             var next = page + 1;
             var back = page - 1;
+            $('body').removeClass('bg');
             $('#description-msg').hide();
             $('#preview-urls').show();
             $("#list").load(
@@ -137,7 +142,12 @@
 
     </script>
     <!--SCRIPTS-->
-    <script src="/min/production.min.js"></script>
+    <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/dependencies/jquery-1.11.3.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/functions.js"></script>
+    <script src="/js/npm.js"></script>
     <!--SCRIPTS END-->
   </body>
 </html>
