@@ -133,7 +133,7 @@ header {
 	width:100%;
 }
 
-#link-position a {
+#link-position a, .menulist a {
 	color:#333;
 }
 
@@ -143,7 +143,7 @@ header {
 	height:115px;
 	text-align:center;
 	padding-top:20px;
-	font-size:2em;
+	font-size:1.5em;
 	background-color:#DE7026;
 }
 
@@ -157,6 +157,22 @@ header {
 }
 
 #list {
-	background-color:#DE7026;
+	/*background-color:#DE7026;*/
 	margin-top:auto;
+}
+
+.menulist {
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:9;
+	background-color:#B51C2B;
+	padding-left:15px;
+	margin-top:auto;
+}
+
+.close-modal {
+	float:right;
+	padding-right:20px;
+	cursor:pointer;
 }

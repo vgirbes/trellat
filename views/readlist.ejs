@@ -33,9 +33,18 @@
             width:100%;
             height:100%;
         }
+        .nav > li > a:hover, .nav > li > a:focus {
+            background:#B51C2B;
+        }
     </style>
   </head>
   <body>
+    <ul class="nav navbar-nav menulist" style="">
+        <li class="dropdown">
+            <a id="itemlist" href="#" data-toggle="dropdown" class="dropdown-toggle">List <b class="caret"></b></a>
+            <ul id="pagelist" class="dropdown-menu"></ul>
+        </li>
+    </ul>
     <section id="preview-urls"></section>
     <iframe id="list" src="<%= list[1] %>" frameborder="0" height="100%" width="100%"></iframe>
     <section id="navigation">
@@ -53,15 +62,24 @@
         $(document).ready(function() {
             var list = [];
             $('#preview-urls').html('');
+            $('#pagelist').html('');
             <%for (var i in list){%>
                 list[<%= i %>] = "<%= list[i] %>";
+                if (<%= i %> > 0) {
+                    $('#pagelist').append('<li><a href="<%= list[i] %>" target="_blank"><%= list[i] %></a></li>');
+                    $('#pagelist').append('<li class="divider"></li>');
+                }
             <%}%>
+            $('#pagelist').append('<li><a href="http://trell.at">Go to Trell.at</a></li>');
             previewLoad(list, 1);
             $('.navigate').click(function() {
                 var page = parseInt($(this).attr('data-page'));
                 if (typeof list[page] != 'undefined' && page > 0) {
                     previewLoad(list, page);
                 }
+            });
+            $('#itemlist').click(function() {
+                $('#pagelist').toggle();
             });
         });
 
@@ -71,7 +89,7 @@
             $("#list").load(
                 list[page],
                 function(response, status, xhr) {
-                    $('#preview-urls').html('<div style="float:right;padding-right:20px;cursor:pointer;" onClick="closeModal();">X</div>');
+                    $('#preview-urls').html('<div class="close-modal" onClick="closeModal();">X</div>');
                     $('#preview-urls').append('Trying to redirect.<br/><a href="' + list[page] + '" target="_blank">Please, click here to view the page</a>');
                     if (status == "success") {
                         $('#preview-urls').hide();
