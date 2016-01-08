@@ -47,7 +47,7 @@
     </ul>
     <section id="preview-urls"></section>
     <iframe id="list" src="#" frameborder="0" height="100%" width="100%"></iframe>
-    <section id="description"></section>
+    <section id="description-msg"></section>
     <section id="navigation">
         <div id="back-position">
             <button class="navigate add-button" id="back" data-page="0" style="display:none;">Back</button>
@@ -64,7 +64,7 @@
             var list = [];
             $('#preview-urls').html('');
             $('#pagelist').html('');
-            $('#description').html("<%= list[0] %>");
+            $('#description-msg').html("<%= list[0] %>");
             <%for (var i in list){%>
                 list[<%= i %>] = "<%= list[i] %>";
                 if (<%= i %> > 0) {
@@ -87,7 +87,7 @@
         function previewLoad(list, page) {
             var next = page + 1;
             var back = page - 1;
-            $('#description').hide();
+            $('#description-msg').hide();
             $('#preview-urls').show();
             $("#list").load(
                 list[page],
