@@ -206,10 +206,10 @@ header {
 }
 
 .bg {
-	background: -webkit-radial-gradient(farthest-side ellipse at 10% 0, #ccc, #fff 70%, #FFFCAE 120%); 
-  	background: -o-radial-gradient(farthest-side ellipse at 10% 0, #ccc, #fff 70%, #FFFCAE 120%); 
-  	background: -moz-radial-gradient(farthest-side ellipse at 10% 0, #ccc, #fff 70%, #FFFCAE 120%); 
-	background:radial-gradient(farthest-side ellipse at 10% 0, #ccc, #fff 70%, #FFFCAE 120%);
+	background: -webkit-radial-gradient(farthest-side ellipse at 10% 0, #ccc, #fff 70%, #FFF 120%); 
+  	background: -o-radial-gradient(farthest-side ellipse at 10% 0, #ccc, #fff 70%, #FFF 120%); 
+  	background: -moz-radial-gradient(farthest-side ellipse at 10% 0, #ccc, #fff 70%, #FFF 120%); 
+	background:radial-gradient(farthest-side ellipse at 10% 0, #ccc, #fff 70%, #FFF 120%);
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
