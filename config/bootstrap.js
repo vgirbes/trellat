@@ -17,7 +17,7 @@ module.exports.bootstrap = function(cb) {
   sails.ERROR_URL_NEEDED = 1
   sails.ERROR_HASH_CREATION = 2
   var redis = require('redis')
-  sails.redisClient = redis.createClient(6379, '127.0.0.1')
+  sails.redisClient = redis.createClient(6379, process.env.REDIS_PORT_6379_TCP_ADDR || '127.0.0.1')
   //sails.redisClient.auth(sails.config.redis.password)
   cb();
 };
